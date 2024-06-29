@@ -78,14 +78,69 @@ Puedes acceder a la documentación interactiva de la API visitando `http://127.0
 ## Estructura del Proyecto
 
 ```
-my_fastapi_project/
-├── main.py         # Archivo principal de la aplicación
-├── models.py       # Definición de los modelos de la base de datos
-├── database.py     # Configuración de la base de datos
-├── schemas.py      # Esquemas Pydantic para validación de datos
-├── crud.py         # Operaciones CRUD
-└── requirements.txt # Dependencias del proyecto
+# Estructura de Carpetas del Proyecto
+
+Este documento describe la estructura de carpetas utilizada en este proyecto. La organización de las carpetas está diseñada para mejorar la claridad y la eficiencia del desarrollo.
+
+root/
+│
+├── main.py
+├── db.py
+├── create_tables.py
+├── models/
+│   ├── __init__.py
+│   ├── caja.py
+│   ├── categoria.py
+│   ├── cliente.py
+│   ├── detalle_venta.py
+│   ├── producto.py
+│   ├── serie.py
+│   ├── tipo_afectacion.py
+│   ├── tipo_comprobante.py
+│   ├── tipo_documento.py
+│   ├── usuario.py
+│   ├── venta.py
+├── crud/
+│   ├── __init__.py
+│   ├── caja.py
+│   ├── categoria.py
+│   ├── cliente.py
+│   ├── detalle_venta.py
+│   ├── producto.py
+│   ├── serie.py
+│   ├── tipo_afectacion.py
+│   ├── tipo_comprobante.py
+│   ├── tipo_documento.py
+│   ├── usuario.py
+│   ├── venta.py
+├── schemas/
+│   ├── __init__.py
+│   ├── caja.py
+│   ├── categoria.py
+│   ├── cliente.py
+│   ├── detalle_venta.py
+│   ├── producto.py
+│   ├── serie.py
+│   ├── tipo_afectacion.py
+│   ├── tipo_comprobante.py
+│   ├── tipo_documento.py
+│   ├── usuario.py
+│   ├── venta.py
+├── routers/
+    ├── __init__.py
+    ├── caja.py
+    ├── categoria.py
+    ├── cliente.py
+    ├── detalle_venta.py
+    ├── producto.py
+    ├── serie.py
+    ├── tipo_afectacion.py
+    ├── tipo_comprobante.py
+    ├── tipo_documento.py
+    ├── usuario.py
+    ├── venta.py
 ```
+
 
 ## Contribuciones
 
