@@ -1,0 +1,11 @@
+from .caja import router as caja_router
+from .categoria import router as categoria_router
+from .cliente import router as cliente_router
+from .detalle_venta import router as detalle_venta_router
+from .producto import router as producto_router
+from .serie import router as serie_router
+from .tipo_afectacion import router as tipo_afectacion_router
+from .tipo_comprobante import router as tipo_comprobante_router
+from .tipo_documento import router as tipo_documento_router
+from .usuario import router as usuario_router
+from .venta import router as venta_router

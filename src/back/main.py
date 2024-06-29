@@ -1,33 +1,16 @@
-from fastapi import FastAPI, Depends, HTTPException
-from sqlalchemy.orm import Session
-import models, schemas, crud
-from database import SessionLocal, engine
-
-models.Base.metadata.create_all(bind=engine)
+from fastapi import FastAPI
+from routers import caja_router, categoria_router, cliente_router, detalle_venta_router, producto_router, serie_router, tipo_afectacion_router, tipo_comprobante_router, tipo_documento_router, usuario_router, venta_router
 
 app = FastAPI()
 
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
-
-@app.post("/categorias/", response_model=schemas.Categoria)
-def create_categoria(categoria: schemas.Categoria, db: Session = Depends(get_db)):
-    return crud.create_categoria(db=db, categoria=categoria)
-
-@app.get("/categorias/", response_model=list[schemas.Categoria])
-def read_categorias(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
-    categorias = crud.get_categorias(db, skip=skip, limit=limit)
-    return categorias
-
-@app.get("/categorias/{categoria_id}", response_model=schemas.Categoria)
-def read_categoria(categoria_id: int, db: Session = Depends(get_db)):
-    db_categoria = crud.get_categoria(db, categoria_id=categoria_id)
-    if db_categoria is None:
-        raise HTTPException(status_code=404, detail="Categoria not found")
-    return db_categoria
-
-# Puedes agregar más rutas según sea necesario
+app.include_router(caja_router, prefix="/api/v1", tags=["caja"])
+app.include_router(categoria_router, prefix="/api/v1", tags=["categoria"])
+app.include_router(cliente_router, prefix="/api/v1", tags=["cliente"])
+app.include_router(detalle_venta_router, prefix="/api/v1", tags=["detalle_venta"])
+app.include_router(producto_router, prefix="/api/v1", tags=["producto"])
+app.include_router(serie_router, prefix="/api/v1", tags=["serie"])
+app.include_router(tipo_afectacion_router, prefix="/api/v1", tags=["tipo_afectacion"])
+app.include_router(tipo_comprobante_router, prefix="/api/v1", tags=["tipo_comprobante"])
+app.include_router(tipo_documento_router, prefix="/api/v1", tags=["tipo_documento"])
+app.include_router(usuario_router, prefix="/api/v1", tags=["usuario"])
+app.include_router(venta_router, prefix="/api/v1", tags=["venta"])
