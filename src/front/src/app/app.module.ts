@@ -5,7 +5,7 @@ import { provideAuth0 } from '@auth0/auth0-angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideHttpClient } from '@angular/common/http';
-import { ProductsService } from './products/products.service';
+import { ProductService } from './products/products.service';
 import { SigetraMenuComponent } from './sigetra-menu/sigetra-menu.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CategoriesComponent } from './categories/categories.component';
@@ -15,6 +15,8 @@ import { ManagementComponent } from './management/management.component';
 import { CommonModule } from '@angular/common';
 import { ProductsComponent } from './products/products.component';
 import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SigetraLoginComponent } from './sigetra-login/sigetra-login.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { FormsModule } from '@angular/forms';
     SalesComponent,
     UsersComponent,
     ManagementComponent,
-    ProductsComponent
+    ProductsComponent,
+    SigetraLoginComponent
   ],
   imports: [    
     BrowserModule,
@@ -36,7 +39,7 @@ import { FormsModule } from '@angular/forms';
   ],
   providers: [
     provideHttpClient(),
-    ProductsService,
+    ProductService,
     provideAuth0({
       domain: 'dev-caf2q4ut5m4pp4rz.us.auth0.com',
       clientId: 'c9ay37UI2p8HzTTiNXFIzAHllwMZjN7K',

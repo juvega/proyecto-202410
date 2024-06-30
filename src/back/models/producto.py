@@ -1,4 +1,5 @@
-from sqlalchemy import Column, Integer, Text, String, Float, TIMESTAMP
+from sqlalchemy import Column, Integer, Text, String, Float, DateTime
+from sqlalchemy.sql import func
 from db import Base
 
 class Producto(Base):
@@ -17,4 +18,4 @@ class Producto(Base):
     tipo_afectacion = Column(String(50), nullable=True)
     ventas = Column(Integer, nullable=True)
     unidades = Column(String(50), nullable=True)
-    fecha = Column(TIMESTAMP, nullable=False, server_default='CURRENT_TIMESTAMP', onupdate='CURRENT_TIMESTAMP')
+    fecha = Column(DateTime, server_default=func.now(), onupdate=func.now())

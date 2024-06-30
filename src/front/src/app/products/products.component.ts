@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { ProductsService } from './products.service';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { ProductService } from './products.service';
 
 @Component({
   selector: 'app-products',
@@ -11,43 +11,92 @@ import { ProductsService } from './products.service';
 export class ProductsComponent implements OnInit {
   products: any[] = [];
   selectedProduct: any = {};
+  closeResult = '';
 
-  constructor(private productoService: ProductsService, private modalService: NgbModal) { }
+  constructor(private productoService: ProductService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
-    this.getAllProducts();
+    this.obtenerProductos();
   }
 
-  getAllProducts(): void {
+  obtenerProductos(): void {
     this.productoService.getProductos().subscribe((data: any[]) => {
-      
       this.products = data;
     });
   }
 
-  openEditModal(product: any): void {
+  openCreateModal(content: any): void {
+    this.selectedProduct = {}; // Reset selectedProduct for creation
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
+      (result) => {
+        this.closeResult = `Closed with: ${result}`;
+      },
+      (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      }
+    );
+  }
+
+  openEditModal(content: any, product: any): void {
     this.selectedProduct = { ...product };
-    const modal = document.getElementById('editProductModal');
-    if (modal) {
-      const bootstrapModal = new bootstrap.Modal(modal);
-      bootstrapModal.show();
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
+      (result) => {
+        this.closeResult = `Closed with: ${result}`;
+      },
+      (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      }
+    );
+  }
+
+  openConfirmModal(content: any, product: any): void {
+    this.selectedProduct = { ...product };
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
+      (result) => {
+        this.closeResult = `Closed with: ${result}`;
+      },
+      (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      }
+    );
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
     }
+  }
+
+  guardarNuevoProducto(): void {
+    this.productoService.createProducto(this.selectedProduct).subscribe(() => {
+      this.obtenerProductos();
+      this.modalService.dismissAll(); // Close the modal after saving
+    });
   }
 
   guardarCambios(): void {
     this.productoService.updateProducto(this.selectedProduct.id, this.selectedProduct).subscribe(() => {
-      this.getAllProducts();
-      const modal = document.getElementById('editProductModal');
-      if (modal) {
-        const bootstrapModal = bootstrap.Modal.getInstance(modal);
-        bootstrapModal.hide();
-      }
+      this.obtenerProductos();
+      this.modalService.dismissAll(); // Close the modal after saving
     });
   }
+
+  confirmarEliminacion(): void {
+    this.productoService.deleteProducto(this.selectedProduct.id).subscribe(() => {
+      this.obtenerProductos(); // Refresh the list after deletion
+      this.modalService.dismissAll(); // Close the modal after deletion
+    });
+  }
+
+  
+
   eliminarProducto(id: number): void {
-    // Lógica para eliminar el producto
     this.productoService.deleteProducto(id).subscribe(() => {
-      this.getAllProducts(); // Refrescar la lista después de eliminar
+      this.obtenerProductos(); // Refresh the list after deletion
     });
   }
 }

@@ -17,8 +17,4 @@ export class AppComponent implements OnInit {
       this.isAuthenticated = isAuthenticated;
     });
   }
-
-  login(): void {
-    this.auth.loginWithRedirect();
-  }
 }

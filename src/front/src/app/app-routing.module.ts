@@ -6,15 +6,19 @@ import { CategoriesComponent } from './categories/categories.component';
 import { SalesComponent } from './sales/sales.component';
 import { UsersComponent } from './users/users.component';
 import { ManagementComponent } from './management/management.component';
+import { AuthGuard } from './sigetra-auth.guard';
+import { SigetraLoginComponent } from './sigetra-login/sigetra-login.component';
 
 const routes: Routes = [
-  { path: 'productos', component: ProductsComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'categorias', component: CategoriesComponent },
-  { path: 'ventas', component: SalesComponent },
-  { path: 'usuarios', component: UsersComponent },
-  { path: 'administracion', component: ManagementComponent },
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
+  { path: 'productos', component: ProductsComponent, canActivate: [AuthGuard]  },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]  },
+  { path: 'categorias', component: CategoriesComponent, canActivate: [AuthGuard]  },
+  { path: 'ventas', component: SalesComponent, canActivate: [AuthGuard]  },
+  { path: 'usuarios', component: UsersComponent, canActivate: [AuthGuard]  },
+  { path: 'administracion', component: ManagementComponent, canActivate: [AuthGuard]  },
+  { path: 'login', component: SigetraLoginComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '**', redirectTo: '/login' }
 ];
 
 
