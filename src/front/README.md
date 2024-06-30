@@ -1,27 +1,111 @@
-# App
+Aquí tienes un archivo `README.md` con las instrucciones para la ejecución del código de Angular 18:
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
+```markdown
+# Angular 18 Application
 
-## Development server
+Este proyecto es una aplicación Angular versión 18.0.5.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Prerrequisitos
 
-## Code scaffolding
+Asegúrate de tener instalado Node.js y npm. Puedes descargar Node.js desde [nodejs.org](https://nodejs.org/).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Verificar instalación
 
-## Build
+```bash
+node -v
+npm -v
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Instalación
 
-## Running unit tests
+Clona este repositorio y navega hasta el directorio del proyecto:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+git clone https://github.com/juvega/proyecto-202410.git
+cd proyecto-202410/src/front
+```
 
-## Running end-to-end tests
+Instala las dependencias del proyecto:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+npm install
+```
 
-## Further help
+## Ejecución de la Aplicación
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Para ejecutar la aplicación en un servidor de desarrollo, usa el siguiente comando:
+
+```bash
+npm start
+```
+
+La aplicación estará disponible en `http://localhost:4200/`. La aplicación se recargará automáticamente si haces algún cambio en los archivos fuente.
+
+## Compilación
+
+Para compilar el proyecto, usa el siguiente comando:
+
+```bash
+npm run build
+```
+
+Los archivos compilados se almacenarán en el directorio `dist/`. Usa la bandera `--prod` para una compilación de producción.
+
+## Modo de Observación
+
+Para compilar el proyecto en modo de observación, usa el siguiente comando:
+
+```bash
+npm run watch
+```
+
+## Ejecución de Pruebas Unitarias
+
+Para ejecutar las pruebas unitarias a través de [Karma](https://karma-runner.github.io), usa el siguiente comando:
+
+```bash
+npm test
+```
+
+## Dependencias
+
+Este proyecto utiliza las siguientes dependencias principales:
+
+- `@angular/animations`: `^18.0.5`
+- `@angular/common`: `^18.0.5`
+- `@angular/compiler`: `^18.0.5`
+- `@angular/core`: `^18.0.5`
+- `@angular/forms`: `^18.0.5`
+- `@angular/platform-browser`: `^18.0.5`
+- `@angular/platform-browser-dynamic`: `^18.0.5`
+- `@angular/router`: `^18.0.5`
+- `@auth0/auth0-angular`: `^2.2.3`
+- `@fortawesome/fontawesome-free`: `^6.5.2`
+- `@ng-bootstrap/ng-bootstrap`: `^17.0.0`
+- `@popperjs/core`: `^2.11.8`
+- `bootstrap`: `^5.3.3`
+- `rxjs`: `~7.8.0`
+- `tslib`: `^2.3.0`
+- `zone.js`: `~0.14.3`
+
+## Dependencias de Desarrollo
+
+Este proyecto utiliza las siguientes dependencias de desarrollo:
+
+- `@angular-devkit/build-angular`: `^18.0.6`
+- `@angular/cli`: `^18.0.6`
+- `@angular/compiler-cli`: `^18.0.5`
+- `@types/jasmine`: `~5.1.0`
+- `jasmine-core`: `~5.1.0`
+- `karma`: `~6.4.0`
+- `karma-chrome-launcher`: `~3.2.0`
+- `karma-coverage`: `~2.2.0`
+- `karma-jasmine`: `~5.1.0`
+- `karma-jasmine-html-reporter`: `~2.1.0`
+- `typescript`: `~5.4.2`
+
+## Notas
+
+Este proyecto es privado y no debe ser compartido públicamente sin autorización.
+
+```

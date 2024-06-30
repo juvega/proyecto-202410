@@ -1,6 +1,6 @@
-# Proyecto FastAPI con MySQL
+# SIGETRA Backend - 202410
 
-Este proyecto es una API desarrollada con FastAPI que se conecta a una base de datos MySQL y proporciona operaciones CRUD básicas.
+SIGETRA backend es una API desarrollada con FastAPI que se conecta a una base de datos MySQL y proporciona operaciones CRUD básicas.
 
 ## Requisitos
 
