@@ -1,1 +1,11 @@
-<button (click)="auth.loginWithRedirect()">Log in</button>
+<div class="app-container d-flex">
+    <app-sigetra-menu *ngIf="isAuthenticated"></app-sigetra-menu>
+    <div class="content-container flex-grow-1">
+        <div *ngIf="!isAuthenticated" class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+            <app-sigetra-login></app-sigetra-login>
+        </div>
+        <div *ngIf="isAuthenticated">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

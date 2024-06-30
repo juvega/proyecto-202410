@@ -2,6 +2,7 @@ from pydantic import BaseModel
 from typing import Optional
 
 class TipoAfectacionBase(BaseModel):
+    codigo: Optional[str] = None
     descripcion: Optional[str] = None
     nombre_afectacion: Optional[str] = None
     tipo_afectacion: Optional[str] = None
