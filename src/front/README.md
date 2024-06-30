@@ -1,67 +1,27 @@
-# Proyecto Angular Básico - Sigetra
+# App
 
-Este README proporciona una guía básica para configurar y ejecutar el proyecto Angular "Sigetra". Sigue estos pasos para empezar.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
 
-## Requisitos Previos
+## Development server
 
-Asegúrate de tener instaladas las siguientes herramientas en tu sistema:
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-- **Node.js** (versión 12.x o superior)
-- **Angular CLI** (versión 11.x o superior)
+## Code scaffolding
 
-## Instalación
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-1. **Clonar el repositorio**
+## Build
 
-   ```bash
-   git clone https://github.com/juvega/proyecto-202410.git
-   cd proyecto-202410
-   ```
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-2. **Instalar dependencias**
+## Running unit tests
 
-   ```bash
-   npm install
-   ```
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Ejecución del Proyecto
+## Running end-to-end tests
 
-1. **Iniciar el servidor de desarrollo**
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-   ```bash
-   npm start
-   ```
+## Further help
 
-2. **Abrir el navegador**
-
-   Abre tu navegador y ve a `http://localhost:4200`. Aquí podrás ver tu aplicación Angular en funcionamiento.
-
-## Estructura del Proyecto
-
-- **src/**: Código fuente del proyecto
-- **angular.json**: Configuración del Angular CLI
-- **package.json**: Información del proyecto y dependencias
-
-## Comandos Útiles
-
-- **npm start**: Inicia el servidor de desarrollo
-- **npm run build**: Compila el proyecto para producción
-- **npm run watch**: Compila el proyecto en modo observación
-- **npm test**: Ejecuta pruebas unitarias
-
-## Contribuir
-
-Para contribuir al proyecto, por favor sigue estos pasos:
-
-1. Crea una nueva rama (`git checkout -b feature/nueva-funcionalidad`)
-2. Realiza tus cambios y haz un commit (`git commit -m 'Añadir nueva funcionalidad'`)
-3. Sube los cambios a tu repositorio (`git push origin feature/nueva-funcionalidad`)
-4. Abre un Pull Request
-
-## Licencia
-
-Este proyecto está licenciado bajo la Licencia MIT.
-
----
-
-Este es un README básico. Para más detalles, por favor consulta la [documentación oficial de Angular](https://angular.io/docs).
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

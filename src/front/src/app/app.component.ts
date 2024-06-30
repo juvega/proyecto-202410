@@ -1,16 +1,24 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent {  
+export class AppComponent implements OnInit {
+  isAuthenticated: boolean = false;
   title = 'sigetra';
+
   constructor(public auth: AuthService) {}
+
+  ngOnInit(): void {
+    this.auth.isAuthenticated$.subscribe(isAuthenticated => {
+      this.isAuthenticated = isAuthenticated;
+    });
+  }
+
+  login(): void {
+    this.auth.loginWithRedirect();
+  }
 }
